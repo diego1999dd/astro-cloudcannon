@@ -5,7 +5,7 @@ blocks:
       - title: Rápido
         description: Astro é rápido
   - type: hero
-    title: Meu site
+    title: First Site
     description: Descrição
     buttonText: Saiba mais
     buttonLink: /sobre
