@@ -1,12 +1,63 @@
-paths:
-  static: public
-  uploads: public/uploads
-timezone: America/Sao_Paulo
-markdown:
-  engine: commonmark
-  options:
-    gfm: true
 collections_config:
-  content_pages:
+  pages:
     path: src/content/pages
-    icon: contact_page
+    name: Pages
+    icon: description
+
+    fields:
+      - name: blocks
+        label: Blocks
+        type: array
+
+        structures:
+          hero:
+            label: Hero
+            icon: star
+            fields:
+              - name: title
+                label: Título
+                type: text
+
+              - name: description
+                label: Descrição
+                type: textarea
+
+              - name: buttonText
+                label: Texto do botão
+                type: text
+
+              - name: buttonLink
+                label: Link do botão
+                type: text
+
+          features:
+            label: Features
+            icon: list
+            fields:
+              - name: items
+                label: Itens
+                type: array
+                fields:
+                  - name: title
+                    label: Título
+                    type: text
+
+                  - name: description
+                    label: Descrição
+                    type: textarea
+
+          faq:
+            label: FAQ
+            icon: help
+            fields:
+              - name: items
+                label: Perguntas
+                type: array
+                fields:
+                  - name: question
+                    label: Pergunta
+                    type: text
+
+                  - name: answer
+                    label: Resposta
+                    type: textarea
