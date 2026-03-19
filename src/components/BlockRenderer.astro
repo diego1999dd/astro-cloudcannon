@@ -1,0 +1,64 @@
+---
+import Hero from "./Hero.astro";
+import Features from "./Features.astro";
+import Faq from "./Faq.astro";
+
+interface FeatureItem {
+  title: string;
+  description: string;
+}
+
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+type HeroBlock = {
+  type: "hero";
+  title: string;
+  description: string;
+  buttonText: string;
+  buttonLink: string;
+};
+
+type FeaturesBlock = {
+  type: "features";
+  items: FeatureItem[];
+};
+
+type FaqBlock = {
+  type: "faq";
+  items: FaqItem[];
+};
+
+type Block = HeroBlock | FeaturesBlock | FaqBlock;
+
+interface Props {
+  blocks: Block[];
+}
+
+const { blocks } = Astro.props as Props;
+---
+
+{blocks.map((block) => {
+  if (block.type === "hero") {
+    return (
+      <Hero
+        title={block.title}
+        description={block.description}
+        buttonText={block.buttonText}
+        buttonLink={block.buttonLink}
+      />
+    );
+  }
+
+  if (block.type === "features") {
+    return <Features items={block.items} />;
+  }
+
+  if (block.type === "faq") {
+    return <Faq items={block.items} />;
+  }
+
+  return null;
+})}

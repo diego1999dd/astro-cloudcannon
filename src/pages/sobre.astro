@@ -1,0 +1,15 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BlockRenderer from "../components/BlockRenderer.astro";
+import { getEntry } from "astro:content";
+
+const sobre = await getEntry("pages", "sobre");
+
+if (!sobre) {
+  throw new Error("Conteúdo da página sobre não encontrado.");
+}
+---
+
+<BaseLayout title="Sobre">
+  <BlockRenderer blocks={sobre.data.blocks} />
+</BaseLayout>

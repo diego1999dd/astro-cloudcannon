@@ -1,0 +1,15 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BlockRenderer from "../components/BlockRenderer.astro";
+import { getEntry } from "astro:content";
+
+const home = await getEntry("pages", "home");
+
+if (!home) {
+  throw new Error("Conteúdo da home não encontrado.");
+}
+---
+
+<BaseLayout title="Home">
+  <BlockRenderer blocks={home.data.blocks} />
+</BaseLayout>

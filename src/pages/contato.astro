@@ -1,0 +1,15 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BlockRenderer from "../components/BlockRenderer.astro";
+import { getEntry } from "astro:content";
+
+const contato = await getEntry("pages", "contato");
+
+if (!contato) {
+  throw new Error("Conteúdo da página contato não encontrado.");
+}
+---
+
+<BaseLayout title="Contato">
+  <BlockRenderer blocks={contato.data.blocks} />
+</BaseLayout>
