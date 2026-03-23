@@ -1,14 +1,14 @@
 ---
 blocks:
-  - type: features
-    items:
-      - title: Rápido
-        description: Astro é rápido
   - type: hero
     title: First Site
     description: Descrição
     buttonText: Saiba mais
     buttonLink: /sobre
+  - type: features
+    items:
+      - title: Rápido Demais
+        description: Astro é rápido
   - type: faq
     items:
       - question: O que é isso?
